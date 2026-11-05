@@ -1,10 +1,16 @@
+from email.errors import CloseBoundaryNotFoundDefect
+
 import data_base_example
 from validations import *
 from data_base_example import *
+from json_handler import *
 import json
 
 def get_id():
-    last_order = orders[-1]
+    all_orders = get_all_orders()
+    if not all_orders:
+        return 1
+    last_order = all_orders[-1]
     return last_order["id"] + 1
 
 def price_after_discount(total):
@@ -56,12 +62,12 @@ def print_menu():
 def create_order():
     total = 0
     order = {}
+    order["items"] = []
     choose = print_menu()
     while choose != 2:
         order_id = get_id()
-        new_order = get_one_order()
         order["id"] = order_id
-        order["items"] = []
+        new_order = get_one_order()
         order["items"].append({"product_id": new_order[0], "quantity": new_order[1]})
         order["status"] = "OPEN"
         for item in products:
@@ -72,35 +78,22 @@ def create_order():
     print(f"discount available: {price_after_discount(total)[1]}%")
     print(f"final price: {price_after_discount(total)[0]}")
     order["total (after discount)"] = price_after_discount(total)[0]
-    orders.append(order)
     add_to_json(order)
 
     return "order has been updated successfully"
 
-
-
-def add_to_json(order):
-    with open("orders.json", "a") as file:
-        json.dump(order, file, indent=2)
-    return "File has been updated"
-
-
-def print_all_orders():
-    with open("orders.json", "r") as file:
-        loaded = json.load(file)
-    return loaded
-
-def search_by_id():
+def close_status():
     order_id = input("Enter order id: ")
     while not is_id_legal(order_id):
         order_id = input("Enter a valid number id: ")
     order_id = int(order_id)
-    loaded = print_all_orders()
-    for order in loaded:
-        if order["id"] == order_id:
-            return order
-    return "Order has not found"
-print(create_order())
+    update_json(order_id, "status", "CLOSED")
+    return "updated"
+
+
+# print(create_order())
+
+
 
 
 

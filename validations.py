@@ -30,17 +30,10 @@ def check_orders_menu(number):
 
 
 def is_product_id_exist(product_id):
-    for id_num in products:
-        if id_num["id"] == product_id:
-            return True
-    return False
+    if product_id > 5 or product_id < 1:
+            return False
+    return True
 
-def is_there_enough_product(product_id, number):
-    for item in products:
-        if item["id"] == product_id:
-            if item["quantity"] >= number:
-                return True
-    return False
 
 def name_according_to_id(product_id):
     for item in products:

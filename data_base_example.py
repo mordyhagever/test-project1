@@ -6,11 +6,3 @@ products = [
     {"id": 5, "name": "USB cable", "price": 30},
 ]
 
-orders = [{
-    "id": 1,
-    "items": [{"product_id": 1, "quantity": 2},
-              {"product id": 3, "quantity": 1}],
-    "total": 1026.0,
-    "status": "OPEN"
-}
-    ]

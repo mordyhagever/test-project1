@@ -1,21 +1,17 @@
-{
-  "id": 2,
-  "items": [
-    {
-      "product_id": 4,
-      "quantity": 5
-    }
-  ],
-  "status": "OPEN",
-  "total (after discount)": 1116.0
-}{
-  "id": 2,
-  "items": [
-    {
-      "product_id": 3,
-      "quantity": 5
-    }
-  ],
-  "status": "OPEN",
-  "total (after discount)": 3825.0
-}
+[
+  {
+    "items": [
+      {
+        "product_id": 2,
+        "quantity": 3
+      },
+      {
+        "product_id": 3,
+        "quantity": 2
+      }
+    ],
+    "id": 1,
+    "status": "CLOSED",
+    "total (after discount)": 1734.0
+  }
+]

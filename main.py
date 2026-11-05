@@ -1,17 +1,17 @@
 from validations import *
 from orders_manager import *
-
+from sales_summary import *
 
 def active1():
     return create_order()
 def active2():
-    return print_all_orders()
+    return get_all_orders()
 def active3():
-    pass
+    return search_by_id()
 def active4():
-    pass
+    return close_status()
 def active5():
-    pass
+    return show_sales_summary()
 
 def print_menu():
     print("""
@@ -47,4 +47,4 @@ def activator():
         user_choice = print_menu()
     return "The progress has been finished"
 
-# print(activator())
+print(activator())
