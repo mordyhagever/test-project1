@@ -1,0 +1,21 @@
+{
+  "id": 2,
+  "items": [
+    {
+      "product_id": 4,
+      "quantity": 5
+    }
+  ],
+  "status": "OPEN",
+  "total (after discount)": 1116.0
+}{
+  "id": 2,
+  "items": [
+    {
+      "product_id": 3,
+      "quantity": 5
+    }
+  ],
+  "status": "OPEN",
+  "total (after discount)": 3825.0
+}

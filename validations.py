@@ -48,4 +48,19 @@ def name_according_to_id(product_id):
             return item["name"]
     return "product is unavailable"
 
+def menu_choose_checker(number):
+    try:
+        number = int(number)
+        if number < 0 or number > 5:
+            return False
+        return True
+    except ValueError:
+        return False
+
+def is_int(number):
+    try:
+        number = int(number)
+        return True
+    except ValueError:
+        return False
 
