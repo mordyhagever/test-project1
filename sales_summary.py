@@ -9,11 +9,15 @@ def show_sales_summary():
     for order in all_sales:
         if order["status"] == "CLOSED":
             sum_money_closed_order += order["total (after discount)"]
+    top_three_id = []
+    for order in top_three_orders:
+        top_three_id.append(order["id"])
+    highest_paid_order = highest_paid_order["id"]
     return {
         "sum_orders": sum_orders,
         "sum sales from closed order": sum_money_closed_order,
         "highest paid order" : highest_paid_order,
-        "top three orders": top_three_orders,
+        "top three orders": top_three_id,
     }
 
 
